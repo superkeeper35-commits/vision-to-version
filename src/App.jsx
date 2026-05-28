@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import StoryModal from './StoryModal';
-import Contact from './Contact';
+import Message from './Message';
 
 function App() {
   const [modalStory, setModalStory] = useState(null);
@@ -157,7 +157,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <Contact />
+      <Message />
 
       {/* Footer */}
       <footer className="footer">
