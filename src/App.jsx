@@ -2,6 +2,8 @@ import './App.css';
 import { useState } from 'react';
 import StoryModal from './StoryModal';
 import Message from './Message';
+import Pricing from './Pricing';
+import LanguageRotator from './LanguageRotator';
 
 function App() {
   const [modalStory, setModalStory] = useState(null);
@@ -24,6 +26,7 @@ function App() {
         <div className="nav-links">
           <a href="#work">Work</a>
           <a href="#envisioned">Ideas</a>
+          <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
         </div>
         <button className="mobile-menu-btn" id="mobileMenuBtn">☰</button>
@@ -33,6 +36,7 @@ function App() {
       <div className="mobile-menu" id="mobileMenu">
         <a href="#work">Work</a>
         <a href="#envisioned">Ideas</a>
+        <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -41,6 +45,10 @@ function App() {
         <div className="hero-background">
           <img src="/images/VictorMoses.png" alt="Victor + Moses — Code & Vision" />
         </div>
+        
+        {/* Language Rotator - Floating on hero image */}
+        <LanguageRotator />
+        
         <div className="hero-content">
           <h1>
             We turn <span className="highlight">ideas</span>
@@ -155,6 +163,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <Pricing />
 
       {/* Contact Section */}
       <Message />
