@@ -14,21 +14,17 @@ function LanguageRotator() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-rotate every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % languages.length);
     }, 2000);
-
     return () => clearInterval(interval);
   }, [languages.length]);
 
   return (
     <div style={styles.floatingContainer}>
-      {/* Globe container */}
       <div style={styles.globeWrapper}>
         <div style={styles.globe}>
-          {/* Spinning ring */}
           <div style={styles.ring}>
             {languages.map((lang, idx) => (
               <div
@@ -43,13 +39,11 @@ function LanguageRotator() {
             ))}
           </div>
           
-          {/* Center display - icon only */}
           <div style={styles.center}>
             <div style={{ fontSize: '36px' }}>{languages[currentIndex].icon}</div>
           </div>
         </div>
         
-        {/* Language name - OUTSIDE the circle, below it */}
         <div style={styles.languageName}>
           {languages[currentIndex].name}
         </div>
@@ -61,7 +55,7 @@ function LanguageRotator() {
 const styles = {
   floatingContainer: {
     position: 'absolute',
-    top: '80px',
+    top: '20px',
     left: '20px',
     zIndex: 100,
     backgroundColor: 'transparent'
@@ -133,7 +127,7 @@ const styles = {
   }
 };
 
-// Add CSS keyframes for spinning animation
+// Add responsive styles for mobile
 const styleSheet = document.createElement("style");
 styleSheet.textContent = `
   @keyframes spin {
@@ -142,6 +136,23 @@ styleSheet.textContent = `
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .language-rotator {
+      transform: scale(0.7);
+      top: 10px !important;
+      left: 10px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .language-rotator {
+      transform: scale(0.6);
+      top: 5px !important;
+      left: 5px !important;
     }
   }
 `;
