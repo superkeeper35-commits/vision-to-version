@@ -4,9 +4,12 @@ import StoryModal from './StoryModal';
 import Message from './Message';
 import Pricing from './Pricing';
 import LanguageRotator from './LanguageRotator';
+import About from './About';
+import Services from './Services';
 
 function App() {
   const [modalStory, setModalStory] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const openModal = (storyId) => {
     setModalStory(storyId);
@@ -14,6 +17,14 @@ function App() {
 
   const closeModal = () => {
     setModalStory(null);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -24,20 +35,46 @@ function App() {
           <span>◇</span>vision-to-version.com
         </div>
         <div className="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
           <a href="#work">Work</a>
           <a href="#envisioned">Ideas</a>
           <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
         </div>
-        <button className="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <button 
+          className="mobile-menu-btn" 
+          id="mobileMenuBtn"
+          onClick={toggleMobileMenu}
+          style={{ cursor: 'pointer' }}
+        >
+          ☰
+        </button>
       </nav>
 
       {/* Mobile menu */}
-      <div className="mobile-menu" id="mobileMenu">
-        <a href="#work">Work</a>
-        <a href="#envisioned">Ideas</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+      <div 
+        className="mobile-menu" 
+        id="mobileMenu"
+        style={{
+          display: isMobileMenuOpen ? 'flex' : 'none',
+          flexDirection: 'column',
+          position: 'absolute',
+          top: '60px',
+          left: 0,
+          right: 0,
+          backgroundColor: 'white',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          padding: '20px',
+          zIndex: 1000
+        }}
+      >
+        <a href="#about" onClick={closeMobileMenu} style={styles.mobileLink}>About</a>
+        <a href="#services" onClick={closeMobileMenu} style={styles.mobileLink}>Services</a>
+        <a href="#work" onClick={closeMobileMenu} style={styles.mobileLink}>Work</a>
+        <a href="#envisioned" onClick={closeMobileMenu} style={styles.mobileLink}>Ideas</a>
+        <a href="#pricing" onClick={closeMobileMenu} style={styles.mobileLink}>Pricing</a>
+        <a href="#contact" onClick={closeMobileMenu} style={styles.mobileLink}>Contact</a>
       </div>
 
       {/* Hero Section */}
@@ -65,6 +102,12 @@ function App() {
           <a href="#work" className="cta-button">View our work →</a>
         </div>
       </section>
+
+      {/* About Section */}
+      <About />
+
+      {/* Services Section */}
+      <Services />
 
       {/* Scroll hint */}
       <div className="scroll-hint">
@@ -180,5 +223,17 @@ function App() {
     </div>
   );
 }
+
+const styles = {
+  mobileLink: {
+    display: 'block',
+    padding: '12px 0',
+    textDecoration: 'none',
+    color: '#333',
+    fontSize: '16px',
+    fontWeight: '500',
+    borderBottom: '1px solid #eee'
+  }
+};
 
 export default App;
