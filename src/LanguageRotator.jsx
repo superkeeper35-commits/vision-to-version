@@ -22,7 +22,7 @@ function LanguageRotator() {
   }, [languages.length]);
 
   return (
-    <div className="language-rotator" style={styles.floatingContainer}>
+    <div style={styles.floatingContainer}>
       <div style={styles.globeWrapper}>
         <div style={styles.globe}>
           <div style={styles.ring}>
@@ -55,7 +55,7 @@ function LanguageRotator() {
 const styles = {
   floatingContainer: {
     position: 'absolute',
-    bottom: '10px',
+    bottom: '10px',  // Moved up slightly
     left: '10px',
     zIndex: 100,
     backgroundColor: 'transparent'
@@ -68,8 +68,8 @@ const styles = {
   },
   globe: {
     position: 'relative',
-    width: '120px',
-    height: '120px',
+    width: '120px',  // Smaller from 160px
+    height: '120px', // Smaller from 160px
   },
   ring: {
     position: 'absolute',
@@ -83,8 +83,8 @@ const styles = {
     position: 'absolute',
     left: '50%',
     top: '50%',
-    width: '30px',
-    height: '30px',
+    width: '30px',   // Smaller from 40px
+    height: '30px',  // Smaller from 40px
     marginLeft: '-15px',
     marginTop: '-15px',
     display: 'flex',
@@ -101,24 +101,24 @@ const styles = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '50px',
-    height: '50px',
+    width: '50px',   // Smaller from 65px
+    height: '50px',  // Smaller from 65px
     backgroundColor: 'rgba(255, 255, 255, 0.98)',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-    border: '2px solid #007bff',
+    border: '2px solid #007bff',  // Thinner border
     zIndex: 10
   },
   languageName: {
-    marginTop: '8px',
-    fontSize: '11px',
+    marginTop: '8px',  // Reduced from 12px
+    fontSize: '11px',  // Reduced from 14px
     fontWeight: 'bold',
     color: '#007bff',
     backgroundColor: 'rgba(0, 123, 255, 0.15)',
-    padding: '4px 10px',
+    padding: '4px 10px',  // Reduced padding
     borderRadius: '20px',
     textAlign: 'center',
     whiteSpace: 'nowrap',
@@ -127,7 +127,7 @@ const styles = {
   }
 };
 
-// Add CSS keyframes and responsive styles
+// Add CSS keyframes for spinning animation
 const styleSheet = document.createElement("style");
 styleSheet.textContent = `
   @keyframes spin {
@@ -139,82 +139,18 @@ styleSheet.textContent = `
     }
   }
   
-  /* Desktop styles (default) */
-  .language-rotator {
-    transform: scale(1);
-    bottom: 10px;
-    left: 10px;
-  }
-  
-  /* Tablet styles */
+  /* Mobile: further adjustments */
   @media (max-width: 768px) {
     .language-rotator {
-      transform: scale(0.85);
-      bottom: 8px !important;
-      left: 8px !important;
-    }
-    
-    .language-rotator .language-name {
-      font-size: 10px !important;
-      padding: 3px 8px !important;
-      margin-top: 6px !important;
-    }
-    
-    .language-rotator .globe {
-      width: 100px !important;
-      height: 100px !important;
-    }
-    
-    .language-rotator .logo {
-      width: 26px !important;
-      height: 26px !important;
-      margin-left: -13px !important;
-      margin-top: -13px !important;
-    }
-    
-    .language-rotator .center {
-      width: 45px !important;
-      height: 45px !important;
-    }
-  }
-  
-  /* Mobile styles */
-  @media (max-width: 480px) {
-    .language-rotator {
-      transform: scale(0.7);
+      transform: scale(0.9);
       bottom: 5px !important;
       left: 5px !important;
     }
-    
-    .language-rotator .language-name {
-      font-size: 9px !important;
-      padding: 2px 6px !important;
-      margin-top: 5px !important;
-    }
-    
-    .language-rotator .globe {
-      width: 85px !important;
-      height: 85px !important;
-    }
-    
-    .language-rotator .logo {
-      width: 22px !important;
-      height: 22px !important;
-      margin-left: -11px !important;
-      margin-top: -11px !important;
-    }
-    
-    .language-rotator .logo span {
-      font-size: 12px !important;
-    }
-    
-    .language-rotator .center {
-      width: 38px !important;
-      height: 38px !important;
-    }
-    
-    .language-rotator .center div {
-      font-size: 18px !important;
+  }
+  
+  @media (max-width: 480px) {
+    .language-rotator {
+      transform: scale(0.85);
     }
   }
 `;
