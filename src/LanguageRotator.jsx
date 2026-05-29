@@ -55,7 +55,7 @@ function LanguageRotator() {
 const styles = {
   floatingContainer: {
     position: 'absolute',
-    top: '20px',
+    bottom: '20px',  // Changed from top to bottom
     left: '20px',
     zIndex: 100,
     backgroundColor: 'transparent'
@@ -127,7 +127,7 @@ const styles = {
   }
 };
 
-// Add responsive styles for mobile
+// Add CSS keyframes for spinning animation
 const styleSheet = document.createElement("style");
 styleSheet.textContent = `
   @keyframes spin {
@@ -139,20 +139,12 @@ styleSheet.textContent = `
     }
   }
   
-  /* Mobile styles */
+  /* Mobile: make rotator smaller at bottom */
   @media (max-width: 768px) {
-    .language-rotator {
-      transform: scale(0.7);
-      top: 10px !important;
+    .floating-container {
+      transform: scale(0.8);
+      bottom: 10px !important;
       left: 10px !important;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .language-rotator {
-      transform: scale(0.6);
-      top: 5px !important;
-      left: 5px !important;
     }
   }
 `;
