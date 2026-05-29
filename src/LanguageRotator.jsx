@@ -24,6 +24,11 @@ function LanguageRotator() {
   return (
     <div style={styles.floatingContainer}>
       <div style={styles.globeWrapper}>
+        {/* Language Name - AT TOP */}
+        <div style={styles.languageName}>
+          {languages[currentIndex].name}
+        </div>
+        
         <div style={styles.globe}>
           <div style={styles.ring}>
             {languages.map((lang, idx) => (
@@ -43,10 +48,6 @@ function LanguageRotator() {
             <div style={{ fontSize: '28px' }}>{languages[currentIndex].icon}</div>
           </div>
         </div>
-        
-        <div style={styles.languageName}>
-          {languages[currentIndex].name}
-        </div>
       </div>
     </div>
   );
@@ -55,7 +56,7 @@ function LanguageRotator() {
 const styles = {
   floatingContainer: {
     position: 'absolute',
-    bottom: '10px',  // Moved up slightly
+    bottom: '60px',  // Changed from 10px to 60px (moves UP)
     left: '10px',
     zIndex: 100,
     backgroundColor: 'transparent'
@@ -68,8 +69,8 @@ const styles = {
   },
   globe: {
     position: 'relative',
-    width: '120px',  // Smaller from 160px
-    height: '120px', // Smaller from 160px
+    width: '120px',
+    height: '120px',
   },
   ring: {
     position: 'absolute',
@@ -83,8 +84,8 @@ const styles = {
     position: 'absolute',
     left: '50%',
     top: '50%',
-    width: '30px',   // Smaller from 40px
-    height: '30px',  // Smaller from 40px
+    width: '30px',
+    height: '30px',
     marginLeft: '-15px',
     marginTop: '-15px',
     display: 'flex',
@@ -101,24 +102,24 @@ const styles = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '50px',   // Smaller from 65px
-    height: '50px',  // Smaller from 65px
+    width: '50px',
+    height: '50px',
     backgroundColor: 'rgba(255, 255, 255, 0.98)',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-    border: '2px solid #007bff',  // Thinner border
+    border: '2px solid #007bff',
     zIndex: 10
   },
   languageName: {
-    marginTop: '8px',  // Reduced from 12px
-    fontSize: '11px',  // Reduced from 14px
+    marginBottom: '8px',
+    fontSize: '11px',
     fontWeight: 'bold',
     color: '#007bff',
     backgroundColor: 'rgba(0, 123, 255, 0.15)',
-    padding: '4px 10px',  // Reduced padding
+    padding: '4px 10px',
     borderRadius: '20px',
     textAlign: 'center',
     whiteSpace: 'nowrap',
