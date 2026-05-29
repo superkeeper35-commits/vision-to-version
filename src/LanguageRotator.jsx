@@ -13,19 +13,7 @@ function LanguageRotator() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Detect mobile screen size
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Auto-rotate every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % languages.length);
@@ -33,100 +21,8 @@ function LanguageRotator() {
     return () => clearInterval(interval);
   }, [languages.length]);
 
-  // Different sizes for mobile vs desktop
-  const size = isMobile ? {
-    globe: 80,
-    logo: 22,
-    center: 35,
-    icon: 20,
-    nameFont: 9,
-    ringRadius: 40
-  } : {
-    globe: 120,
-    logo: 30,
-    center: 50,
-    icon: 28,
-    nameFont: 11,
-    ringRadius: 60
-  };
-
-  const styles = {
-    floatingContainer: {
-      position: 'absolute',
-      bottom: isMobile ? '5px' : '10px',
-      left: isMobile ? '5px' : '10px',
-      zIndex: 100,
-      backgroundColor: 'transparent'
-    },
-    globeWrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    globe: {
-      position: 'relative',
-      width: `${size.globe}px`,
-      height: `${size.globe}px`,
-    },
-    ring: {
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      width: '100%',
-      height: '100%',
-      animation: 'spin 10s linear infinite'
-    },
-    logo: {
-      position: 'absolute',
-      left: '50%',
-      top: '50%',
-      width: `${size.logo}px`,
-      height: `${size.logo}px`,
-      marginLeft: `-${size.logo / 2}px`,
-      marginTop: `-${size.logo / 2}px`,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
-      borderRadius: '50%',
-      boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
-      border: '2px solid #e0e0e0',
-      fontSize: `${size.logo * 0.6}px`
-    },
-    center: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: `${size.center}px`,
-      height: `${size.center}px`,
-      backgroundColor: 'rgba(255, 255, 255, 0.98)',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-      border: '2px solid #007bff',
-      zIndex: 10
-    },
-    languageName: {
-      marginTop: isMobile ? '4px' : '8px',
-      fontSize: `${size.nameFont}px`,
-      fontWeight: 'bold',
-      color: '#007bff',
-      backgroundColor: 'rgba(0, 123, 255, 0.15)',
-      padding: isMobile ? '2px 6px' : '4px 10px',
-      borderRadius: '20px',
-      textAlign: 'center',
-      whiteSpace: 'nowrap',
-      boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-      backdropFilter: 'blur(5px)'
-    }
-  };
-
   return (
-    <div style={styles.floatingContainer}>
+    <div className="language-rotator" style={styles.floatingContainer}>
       <div style={styles.globeWrapper}>
         <div style={styles.globe}>
           <div style={styles.ring}>
@@ -135,16 +31,16 @@ function LanguageRotator() {
                 key={idx}
                 style={{
                   ...styles.logo,
-                  transform: `rotate(${idx * 45}deg) translate(${size.ringRadius}px) rotate(-${idx * 45}deg)`,
+                  transform: `rotate(${idx * 45}deg) translate(60px) rotate(-${idx * 45}deg)`,
                 }}
               >
-                <span>{lang.icon}</span>
+                <span style={{ fontSize: '18px' }}>{lang.icon}</span>
               </div>
             ))}
           </div>
           
           <div style={styles.center}>
-            <div style={{ fontSize: `${size.icon}px` }}>{languages[currentIndex].icon}</div>
+            <div style={{ fontSize: '28px' }}>{languages[currentIndex].icon}</div>
           </div>
         </div>
         
@@ -156,7 +52,82 @@ function LanguageRotator() {
   );
 }
 
-// Add CSS keyframes
+const styles = {
+  floatingContainer: {
+    position: 'absolute',
+    bottom: '10px',
+    left: '10px',
+    zIndex: 100,
+    backgroundColor: 'transparent'
+  },
+  globeWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  globe: {
+    position: 'relative',
+    width: '120px',
+    height: '120px',
+  },
+  ring: {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    animation: 'spin 10s linear infinite'
+  },
+  logo: {
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    width: '30px',
+    height: '30px',
+    marginLeft: '-15px',
+    marginTop: '-15px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: '50%',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+    border: '2px solid #e0e0e0',
+    fontSize: '18px'
+  },
+  center: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50px',
+    height: '50px',
+    backgroundColor: 'rgba(255, 255, 255, 0.98)',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+    border: '2px solid #007bff',
+    zIndex: 10
+  },
+  languageName: {
+    marginTop: '8px',
+    fontSize: '11px',
+    fontWeight: 'bold',
+    color: '#007bff',
+    backgroundColor: 'rgba(0, 123, 255, 0.15)',
+    padding: '4px 10px',
+    borderRadius: '20px',
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+    backdropFilter: 'blur(5px)'
+  }
+};
+
+// Add CSS keyframes and responsive styles
 const styleSheet = document.createElement("style");
 styleSheet.textContent = `
   @keyframes spin {
@@ -165,6 +136,85 @@ styleSheet.textContent = `
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+  
+  /* Desktop styles (default) */
+  .language-rotator {
+    transform: scale(1);
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  /* Tablet styles */
+  @media (max-width: 768px) {
+    .language-rotator {
+      transform: scale(0.85);
+      bottom: 8px !important;
+      left: 8px !important;
+    }
+    
+    .language-rotator .language-name {
+      font-size: 10px !important;
+      padding: 3px 8px !important;
+      margin-top: 6px !important;
+    }
+    
+    .language-rotator .globe {
+      width: 100px !important;
+      height: 100px !important;
+    }
+    
+    .language-rotator .logo {
+      width: 26px !important;
+      height: 26px !important;
+      margin-left: -13px !important;
+      margin-top: -13px !important;
+    }
+    
+    .language-rotator .center {
+      width: 45px !important;
+      height: 45px !important;
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 480px) {
+    .language-rotator {
+      transform: scale(0.7);
+      bottom: 5px !important;
+      left: 5px !important;
+    }
+    
+    .language-rotator .language-name {
+      font-size: 9px !important;
+      padding: 2px 6px !important;
+      margin-top: 5px !important;
+    }
+    
+    .language-rotator .globe {
+      width: 85px !important;
+      height: 85px !important;
+    }
+    
+    .language-rotator .logo {
+      width: 22px !important;
+      height: 22px !important;
+      margin-left: -11px !important;
+      margin-top: -11px !important;
+    }
+    
+    .language-rotator .logo span {
+      font-size: 12px !important;
+    }
+    
+    .language-rotator .center {
+      width: 38px !important;
+      height: 38px !important;
+    }
+    
+    .language-rotator .center div {
+      font-size: 18px !important;
     }
   }
 `;
