@@ -2,7 +2,7 @@ import './StoryModal.css';
 
 function StoryModal({ storyId, onClose }) {
   if (!storyId) {
-    return null;  // If no storyId, show nothing
+    return null;
   }
 
   return (
@@ -18,7 +18,7 @@ function StoryModal({ storyId, onClose }) {
               <p><strong>Live Demo:</strong> <a href="https://superkeeperapp-6isv.onrender.com/" target="_blank" rel="noopener noreferrer">superkeeperapp-6isv.onrender.com</a></p>
               
               <h3>What it does:</h3>
-              <p>Full-stack inventory management system for small retail shops in Kenya. Helps shop owners track stock, manage staff, and see sales in real-time. 500+ businesses served.</p>
+              <p>Full-stack inventory management system for small retail shops in Kenya. Helps shop owners track stock, manage staff, and see sales in real-time. Ready for first customers.</p>
               
               <h3>Key Features:</h3>
               <ul>
@@ -93,6 +93,110 @@ function StoryModal({ storyId, onClose }) {
               
               <p><strong>👨‍💻 Author:</strong> Moses Kipkorir Cheruiyot</p>
               <p><strong>📄 License:</strong> MIT</p>
+            </div>
+          )}
+
+          {/* M-Pesa API Playground Story */}
+          {storyId === 'mpesa' && (
+            <div>
+              <h2>💰 M-Pesa API Playground</h2>
+              <p><strong>Live Demo:</strong> <a href="https://mpesa-daraja-apis.onrender.com/" target="_blank" rel="noopener noreferrer">mpesa-daraja-apis.onrender.com</a></p>
+              <p><strong>GitHub:</strong> <a href="https://github.com/ArapCheruiyot/Darajaplay" target="_blank" rel="noopener noreferrer">github.com/ArapCheruiyot/Darajaplay</a></p>
+              
+              <h3>What it does:</h3>
+              <p>Interactive web-based demonstration platform for Safaricom's M-Pesa Daraja API. Implements STK Push (C2B) and B2C payment flows in a sandbox environment.</p>
+              
+              <h3>Key Features:</h3>
+              <ul>
+                <li>STK Push (C2B) payment flow</li>
+                <li>B2C payment flow</li>
+                <li>Real-time API status monitoring</li>
+                <li>Production-grade error tracking with Sentry</li>
+                <li>Tab-based interface for testing different payment flows</li>
+              </ul>
+              
+              <h3>Tech Stack:</h3>
+              <ul>
+                <li>Backend: Python / Flask</li>
+                <li>Frontend: JavaScript</li>
+                <li>Integration: Daraja API, Sentry</li>
+                <li>Deployment: Render</li>
+              </ul>
+            </div>
+          )}
+
+          {/* Urban MoveHomes Story */}
+          {storyId === 'urban-movehomes' && (
+            <div>
+              <h2>🚚 Urban MoveHomes — Moving Company Website</h2>
+              <p><strong>Live Demo:</strong> <a href="https://urbanmoveshomes.onrender.com/" target="_blank" rel="noopener noreferrer">urbanmoveshomes.onrender.com</a></p>
+              
+              <h3>What it does:</h3>
+              <p>Fully responsive, modern website for a professional moving company in Kenya. Features a clean user interface with an admin dashboard, quote request form, and WhatsApp integration.</p>
+              
+              <h3>Key Features:</h3>
+              <ul>
+                <li>📱 Fully responsive — works on desktop, tablet, and mobile</li>
+                <li>🧭 React Router navigation — smooth page transitions</li>
+                <li>🏠 Homepage — hero section with call-to-action buttons</li>
+                <li>📄 About page — company story, mission, and values</li>
+                <li>📦 Services page — detailed service descriptions with images</li>
+                <li>📞 Quote page — custom quote request form with location pinning</li>
+                <li>📊 Admin Dashboard — view, filter, update status, and delete quote requests</li>
+                <li>💬 WhatsApp integration — instant contact for customers</li>
+                <li>🔥 Firebase Firestore — stores all quote requests in real-time</li>
+              </ul>
+              
+              <h3>Tech Stack:</h3>
+              <ul>
+                <li>Frontend: React 19 + Vite</li>
+                <li>Routing: React Router DOM v7</li>
+                <li>Styling: CSS (modular, component-specific)</li>
+                <li>Backend / Database: Firebase Firestore (NoSQL)</li>
+                <li>Hosting: Render (Static Site)</li>
+                <li>Version Control: Git + GitHub</li>
+              </ul>
+            </div>
+          )}
+
+          {/* SayIt Story */}
+          {storyId === 'sayit' && (
+            <div>
+              <h2>📖 SayIt — Reading Helper for Kids</h2>
+              <p><strong>Live Demo:</strong> <a href="https://sayit-yq89.onrender.com/" target="_blank" rel="noopener noreferrer">sayit-yq89.onrender.com</a></p>
+              
+              <h3>What it does:</h3>
+              <p>Simple, kid-friendly web app that helps children read independently. When a child gets stuck on a word, they point their phone at it, tap the word, and hear it pronounced. No typing, no menus – just point and listen.</p>
+              
+              <h3>✨ Features:</h3>
+              <ul>
+                <li>📷 Auto-start camera — camera turns on automatically</li>
+                <li>📦 Resizable focus box — adjust the detection area</li>
+                <li>🔍 Multi-word detection — detects all words in the box</li>
+                <li>🔊 Tap any word to hear it — uses text-to-speech</li>
+                <li>⏱️ Auto-detect — runs every 2 seconds</li>
+                <li>💯 Confidence scores — shows how sure the app is</li>
+                <li>📱 Mobile-first design — works on phones</li>
+              </ul>
+              
+              <h3>How It Works:</h3>
+              <ul>
+                <li>Open app → Camera turns on automatically</li>
+                <li>Place paper under the focus box</li>
+                <li>App detects ALL words in the box</li>
+                <li>Words appear as clickable chips</li>
+                <li>Tap any word → Hear it pronounced</li>
+                <li>Kid repeats it and continues reading</li>
+              </ul>
+              
+              <h3>Tech Stack:</h3>
+              <ul>
+                <li>Frontend: React</li>
+                <li>OCR: Tesseract.js</li>
+                <li>Text-to-Speech: Web Speech API</li>
+                <li>Styling: CSS (mobile-first)</li>
+                <li>Hosting: Render</li>
+              </ul>
             </div>
           )}
 

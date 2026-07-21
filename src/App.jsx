@@ -1,5 +1,6 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ReactGA from 'react-ga4';
 import StoryModal from './StoryModal';
 import Message from './Message';
 import Pricing from './Pricing';
@@ -7,9 +8,17 @@ import LanguageRotator from './LanguageRotator';
 import About from './About';
 import Services from './Services';
 
+// Initialize Google Analytics with your Measurement ID
+ReactGA.initialize('G-DK128QB2VE');
+
 function App() {
   const [modalStory, setModalStory] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Track page views
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  }, []);
 
   const openModal = (storyId) => {
     setModalStory(storyId);
@@ -124,7 +133,7 @@ function App() {
             <div className="portfolio-card">
               <img src="/images/logo.png" alt="Superkeeper dashboard" className="card-screenshot" />
               <h3>📦 Superkeeper</h3>
-              <p>Inventory management for small shops in Kenya. Track stock, manage staff, see sales in real-time. 500+ businesses served.</p>
+              <p>Inventory management for small shops in Kenya. Track stock, manage staff, see sales in real-time. Ready for first customers.</p>
               <small>Flask • SQLite • HTML/CSS/JS</small>
               <div className="card-links">
                 <a href="https://superkeeperapp-6isv.onrender.com/" target="_blank" rel="noopener noreferrer" className="card-link">
@@ -174,6 +183,38 @@ function App() {
                   GitHub →
                 </a>
                 <button className="card-link story-btn" onClick={() => openModal('mpesa')}>
+                  Read Story →
+                </button>
+              </div>
+            </div>
+
+            {/* Urban MoveHomes Card */}
+            <div className="portfolio-card">
+              <img src="/images/urban-movehomes.png" alt="Urban MoveHomes website" className="card-screenshot" />
+              <h3>🚚 Urban MoveHomes</h3>
+              <p>Fully responsive website for a professional moving company in Kenya. Includes admin dashboard, quote form, and WhatsApp integration.</p>
+              <small>React • Firebase • CSS</small>
+              <div className="card-links">
+                <a href="https://urbanmoveshomes.onrender.com/" target="_blank" rel="noopener noreferrer" className="card-link">
+                  Live Demo →
+                </a>
+                <button className="card-link story-btn" onClick={() => openModal('urban-movehomes')}>
+                  Read Story →
+                </button>
+              </div>
+            </div>
+
+            {/* SayIt Card */}
+            <div className="portfolio-card">
+              <img src="/images/sayit.png" alt="SayIt reading helper app" className="card-screenshot" />
+              <h3>📖 SayIt — Reading Helper</h3>
+              <p>Kid-friendly web app that helps children read independently. Point phone at a word, tap to hear it pronounced. No typing required.</p>
+              <small>React • Tesseract.js • Web Speech API</small>
+              <div className="card-links">
+                <a href="https://sayit-yq89.onrender.com/" target="_blank" rel="noopener noreferrer" className="card-link">
+                  Live Demo →
+                </a>
+                <button className="card-link story-btn" onClick={() => openModal('sayit')}>
                   Read Story →
                 </button>
               </div>
