@@ -200,6 +200,63 @@ function StoryModal({ storyId, onClose }) {
             </div>
           )}
 
+          {/* 🆕 NdulaBox Story */}
+          {storyId === 'ndulabox' && (
+            <div>
+              <h2>👟 NdulaBox — Kenyan Shoe Marketplace</h2>
+              <p><strong>Live Demo:</strong> <a href="https://njumubox.onrender.com/" target="_blank" rel="noopener noreferrer">njumubox.onrender.com</a></p>
+              <p><strong>GitHub:</strong> <a href="https://github.com/ArapCheruiyot/ndulabox" target="_blank" rel="noopener noreferrer">github.com/ArapCheruiyot/ndulabox</a></p>
+              
+              <h3>What it does:</h3>
+              <p>An e-commerce marketplace connecting Kenyan shoe vendors directly with customers. Each vendor gets their own unique store link to share with customers. Built for the Kenyan market with a focus on simplicity and accessibility.</p>
+              
+              <h3>✨ Key Features:</h3>
+              <ul>
+                <li><strong>Vendor Store Links</strong> — Each vendor gets a unique shareable link (e.g., njumubox.com/store/vendor-id)</li>
+                <li><strong>Camera Upload</strong> — Vendors can take photos directly from their phone camera or upload from gallery</li>
+                <li><strong>Multi-Image Upload</strong> — Upload multiple shoe images for 360° viewing</li>
+                <li><strong>Real-time Search</strong> — Instant search by name, brand, category, or price</li>
+                <li><strong>Store Management</strong> — Vendors manage products, phone, and location</li>
+                <li><strong>WhatsApp & Facebook Sharing</strong> — One-click sharing of store links</li>
+                <li><strong>Mobile-First Design</strong> — Optimized for phone users in Kenya</li>
+                <li><strong>Cloudinary Integration</strong> — Automated image upload and storage</li>
+                <li><strong>Try-On Feature</strong> — Coming soon (AI-powered virtual try-on)</li>
+              </ul>
+              
+              <h3>🛠️ Tech Stack:</h3>
+              <ul>
+                <li><strong>Frontend:</strong> React + Vite</li>
+                <li><strong>Backend/Database:</strong> Firebase / Firestore</li>
+                <li><strong>Image Upload:</strong> Cloudinary API</li>
+                <li><strong>Authentication:</strong> Firebase Auth (Google)</li>
+                <li><strong>Camera:</strong> MediaDevices API</li>
+                <li><strong>Styling:</strong> CSS (custom, responsive)</li>
+                <li><strong>Hosting:</strong> Render</li>
+              </ul>
+              
+              <h3>🏆 Challenges Solved:</h3>
+              <ul>
+                <li><strong>Camera Integration</strong> — Enabled direct camera capture for vendors without gallery navigation</li>
+                <li><strong>Image Management</strong> — Built multi-image upload with Cloudinary for efficient storage</li>
+                <li><strong>Vendor Discovery</strong> — Created unique store links so vendors can self-promote</li>
+                <li><strong>Search Performance</strong> — Implemented client-side filtering for instant results</li>
+                <li><strong>Mobile Experience</strong> — Designed for Kenya's mobile-first internet usage</li>
+              </ul>
+              
+              <h3>📊 Impact:</h3>
+              <ul>
+                <li>Empowers local Kenyan shoe vendors to sell online</li>
+                <li>No technical skills required — vendors just share their link</li>
+                <li>Direct connection between vendors and customers (no middlemen)</li>
+                <li>Built for the Kenyan market with local context</li>
+              </ul>
+              
+              <p><strong>👨‍💻 Author:</strong> Moses Kipkorir Cheruiyot</p>
+              <p><strong>📄 License:</strong> MIT</p>
+              <p><strong>🔄 Status:</strong> Version 1.0 — Live and accepting vendors</p>
+            </div>
+          )}
+
         </div>
       </div>
     </div>

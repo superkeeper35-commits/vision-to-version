@@ -129,6 +129,25 @@ function App() {
           <h2 className="section-title">What we've built</h2>
           <div className="portfolio-grid">
             
+            {/* 🆕 NdulaBox Card - MOVED TO FIRST POSITION */}
+            <div className="portfolio-card">
+              <img src="/images/ndulabox-preview.png" alt="NdulaBox shoe marketplace" className="card-screenshot" />
+              <h3>👟 NdulaBox — Shoe Marketplace</h3>
+              <p>E-commerce marketplace connecting Kenyan shoe vendors directly with customers. Each vendor gets their own store link to share. Camera upload, real-time search, and mobile-first design.</p>
+              <small>React • Firebase • Cloudinary • Vite</small>
+              <div className="card-links">
+                <a href="https://njumubox.onrender.com/" target="_blank" rel="noopener noreferrer" className="card-link">
+                  Live Demo →
+                </a>
+                <a href="https://github.com/ArapCheruiyot/ndulabox" target="_blank" rel="noopener noreferrer" className="card-link">
+                  GitHub →
+                </a>
+                <button className="card-link story-btn" onClick={() => openModal('ndulabox')}>
+                  Read Story →
+                </button>
+              </div>
+            </div>
+
             {/* Superkeeper Card */}
             <div className="portfolio-card">
               <img src="/images/logo.png" alt="Superkeeper dashboard" className="card-screenshot" />
