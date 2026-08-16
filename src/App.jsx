@@ -1,4 +1,5 @@
 import './App.css';
+import './CV.css';  // ← Import CV-specific styles
 import { useState, useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import StoryModal from './StoryModal';
@@ -49,6 +50,7 @@ function App() {
           <a href="#work">Work</a>
           <a href="#envisioned">Ideas</a>
           <a href="#pricing">Pricing</a>
+          <a href="/cv">CV</a>  {/* ← Changed to /cv */}
           <a href="#contact">Contact</a>
         </div>
         <button 
@@ -72,8 +74,8 @@ function App() {
           top: '60px',
           left: 0,
           right: 0,
-          backgroundColor: 'white',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          backgroundColor: '#1a1a1a',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
           padding: '20px',
           zIndex: 1000
         }}
@@ -83,6 +85,7 @@ function App() {
         <a href="#work" onClick={closeMobileMenu} style={styles.mobileLink}>Work</a>
         <a href="#envisioned" onClick={closeMobileMenu} style={styles.mobileLink}>Ideas</a>
         <a href="#pricing" onClick={closeMobileMenu} style={styles.mobileLink}>Pricing</a>
+        <a href="/cv" onClick={closeMobileMenu} style={styles.mobileLink}>CV</a>  {/* ← Changed to /cv */}
         <a href="#contact" onClick={closeMobileMenu} style={styles.mobileLink}>Contact</a>
       </div>
 
@@ -129,7 +132,7 @@ function App() {
           <h2 className="section-title">What we've built</h2>
           <div className="portfolio-grid">
             
-            {/* 🆕 NdulaBox Card - MOVED TO FIRST POSITION */}
+            {/* NdulaBox Card */}
             <div className="portfolio-card">
               <img src="/images/ndulabox-preview.png" alt="NdulaBox shoe marketplace" className="card-screenshot" />
               <h3>👟 NdulaBox — Shoe Marketplace</h3>
@@ -289,10 +292,10 @@ const styles = {
     display: 'block',
     padding: '12px 0',
     textDecoration: 'none',
-    color: '#333',
+    color: '#ededed',
     fontSize: '16px',
     fontWeight: '500',
-    borderBottom: '1px solid #eee'
+    borderBottom: '1px solid #333'
   }
 };
 
