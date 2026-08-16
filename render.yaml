@@ -1,1 +1,12 @@
-render.yaml
+services:
+  - type: web
+    name: my-portfolio
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    routes:
+      - type: spa
+        path: /cv
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
