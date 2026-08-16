@@ -50,7 +50,13 @@ function App() {
           <a href="#work">Work</a>
           <a href="#envisioned">Ideas</a>
           <a href="#pricing">Pricing</a>
-          <a href="/cv">CV</a>  {/* ← Changed to /cv */}
+          <a 
+            href="/assets/cv/Moses_Cheruiyot_CV.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            CV
+          </a>
           <a href="#contact">Contact</a>
         </div>
         <button 
@@ -85,7 +91,15 @@ function App() {
         <a href="#work" onClick={closeMobileMenu} style={styles.mobileLink}>Work</a>
         <a href="#envisioned" onClick={closeMobileMenu} style={styles.mobileLink}>Ideas</a>
         <a href="#pricing" onClick={closeMobileMenu} style={styles.mobileLink}>Pricing</a>
-        <a href="/cv" onClick={closeMobileMenu} style={styles.mobileLink}>CV</a>  {/* ← Changed to /cv */}
+        <a 
+          href="/assets/cv/Moses_Cheruiyot_CV.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          onClick={closeMobileMenu}
+          style={styles.mobileLink}
+        >
+          CV
+        </a>
         <a href="#contact" onClick={closeMobileMenu} style={styles.mobileLink}>Contact</a>
       </div>
 
