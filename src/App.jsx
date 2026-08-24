@@ -1,13 +1,15 @@
 import './App.css';
-import './CV.css';  // ← Import CV-specific styles
+import './CV.css';
 import { useState, useEffect } from 'react';
 import ReactGA from 'react-ga4';
+import { Helmet } from 'react-helmet-async';  // ← ADD THIS
 import StoryModal from './StoryModal';
 import Message from './Message';
 import Pricing from './Pricing';
 import LanguageRotator from './LanguageRotator';
 import About from './About';
 import Services from './Services';
+import SEO from './components/SEO';  // ← ADD THIS
 
 // Initialize Google Analytics with your Measurement ID
 ReactGA.initialize('G-DK128QB2VE');
@@ -38,7 +40,17 @@ function App() {
   };
 
   return (
-    <div>
+    <>
+      {/* ===== SEO COMPONENT ===== */}
+      <SEO 
+        title="Moses Cheruiyot - Software Developer | Full Stack Web Applications"
+        description="Moses Cheruiyot - Software Developer specializing in Full Stack Web Applications. Portfolio showcasing React, Node.js, and modern web projects. Based in Nairobi, Kenya."
+        keywords="Moses Cheruiyot, software developer, full stack developer, web applications, React, Node.js, Nairobi, Kenya, portfolio, ArapCheruiyot"
+        url="https://vision-to-versions.onrender.com"
+        image="https://vision-to-versions.onrender.com/og-image.jpg"
+        author="Moses Cheruiyot"
+      />
+
       {/* Navigation */}
       <nav className="nav">
         <div className="logo">
@@ -106,7 +118,7 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
-          <img src="/images/VictorMoses.png" alt="Victor + Moses — Code & Vision" />
+          <img src="/images/VictorMoses.png" alt="Victor and Moses - Code and Vision team" />
         </div>
         
         {/* Language Rotator - Floating on hero image */}
@@ -148,7 +160,7 @@ function App() {
             
             {/* NdulaBox Card */}
             <div className="portfolio-card">
-              <img src="/images/ndulabox-preview.png" alt="NdulaBox shoe marketplace" className="card-screenshot" />
+              <img src="/images/ndulabox-preview.png" alt="NdulaBox shoe marketplace preview" className="card-screenshot" />
               <h3>👟 NdulaBox — Shoe Marketplace</h3>
               <p>E-commerce marketplace connecting Kenyan shoe vendors directly with customers. Each vendor gets their own store link to share. Camera upload, real-time search, and mobile-first design.</p>
               <small>React • Firebase • Cloudinary • Vite</small>
@@ -167,7 +179,7 @@ function App() {
 
             {/* Superkeeper Card */}
             <div className="portfolio-card">
-              <img src="/images/logo.png" alt="Superkeeper dashboard" className="card-screenshot" />
+              <img src="/images/logo.png" alt="Superkeeper inventory management dashboard preview" className="card-screenshot" />
               <h3>📦 Superkeeper</h3>
               <p>Inventory management for small shops in Kenya. Track stock, manage staff, see sales in real-time. Ready for first customers.</p>
               <small>Flask • SQLite • HTML/CSS/JS</small>
@@ -183,7 +195,7 @@ function App() {
 
             {/* CareCrewKe Card */}
             <div className="portfolio-card">
-              <img src="/images/carecrewlogo.png" alt="CareCrewKe platform" className="card-screenshot" />
+              <img src="/images/carecrewlogo.png" alt="CareCrewKe AI job platform preview" className="card-screenshot" />
               <h3>👥 CareCrewKe</h3>
               <p>AI-powered job platform with CV matching and smart recommendations.</p>
               <small>Flask • AI • Firebase</small>
@@ -191,7 +203,7 @@ function App() {
 
             {/* Facebook Data Collector Card */}
             <div className="portfolio-card">
-              <img src="/images/facebook-collector.png" alt="Facebook Data Collector" className="card-screenshot" />
+              <img src="/images/facebook-collector.png" alt="Facebook Data Collector tool preview" className="card-screenshot" />
               <h3>📘 Facebook Data Collector</h3>
               <p>Extract structured data from Facebook posts — dates, locations, people mentioned, comments, and action categories. Saves locally to CSV.</p>
               <small>Python • Flask • Regex • NLP</small>
@@ -207,7 +219,7 @@ function App() {
 
             {/* M-Pesa API Playground Card */}
             <div className="portfolio-card">
-              <img src="/images/darajaplay.png" alt="M-Pesa API Playground dashboard" className="card-screenshot" />
+              <img src="/images/darajaplay.png" alt="M-Pesa API Playground dashboard preview" className="card-screenshot" />
               <h3>💰 M-Pesa API Playground</h3>
               <p>Interactive demo platform for Safaricom M-Pesa Daraja APIs. Test STK Push (C2B) and B2C payments in sandbox environment. Built with Flask and Daraja API.</p>
               <small>Python • Flask • Daraja API • REST</small>
@@ -226,7 +238,7 @@ function App() {
 
             {/* Urban MoveHomes Card */}
             <div className="portfolio-card">
-              <img src="/images/urban-movehomes.png" alt="Urban MoveHomes website" className="card-screenshot" />
+              <img src="/images/urban-movehomes.png" alt="Urban MoveHomes moving company website preview" className="card-screenshot" />
               <h3>🚚 Urban MoveHomes</h3>
               <p>Fully responsive website for a professional moving company in Kenya. Includes admin dashboard, quote form, and WhatsApp integration.</p>
               <small>React • Firebase • CSS</small>
@@ -242,7 +254,7 @@ function App() {
 
             {/* SayIt Card */}
             <div className="portfolio-card">
-              <img src="/images/sayit.png" alt="SayIt reading helper app" className="card-screenshot" />
+              <img src="/images/sayit.png" alt="SayIt reading helper app for kids preview" className="card-screenshot" />
               <h3>📖 SayIt — Reading Helper</h3>
               <p>Kid-friendly web app that helps children read independently. Point phone at a word, tap to hear it pronounced. No typing required.</p>
               <small>React • Tesseract.js • Web Speech API</small>
@@ -297,7 +309,7 @@ function App() {
 
       {/* Modal Component */}
       <StoryModal storyId={modalStory} onClose={closeModal} />
-    </div>
+    </>
   );
 }
 
